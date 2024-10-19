@@ -1,5 +1,5 @@
 export function memoizePromises() {
     const app = document.getElementById('app')
-    app.innerHTML = '<h1>Project 1</h1><p>This is the content of Project 1.</p>'
-    console.log("Memoizing promises");
+    const html = `Storing the data fetched from api through promises into cache`
+    app.innerHTML = html
 }
