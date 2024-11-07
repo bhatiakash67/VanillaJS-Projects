@@ -1,11 +1,13 @@
 import { homePage } from './home/main.js';
 import { memoizePromises } from './memoizingPromises/main.js';
-import { pro2 } from './pro2/main.js';
+import { RPSGame } from './RPSGame/main.js';
+import { pro3 } from './pro3/main.js';
 
 const routes = {
   '/': homePage,
   '/memoizing-promises': memoizePromises,
-  '/project2': pro2,
+  '/RPSGame': RPSGame,
+  '/pro3': pro3
 };
 
 function renderNav() {
@@ -13,7 +15,8 @@ function renderNav() {
   nav.innerHTML = `
     <a href="/">Home</a>
     <a href="/memoizing-promises">Cache API Calls in JavaScript by Memoizing Promises</a>
-    <a href="/project2">Project 2</a>
+    <a href="/RPSGame">Project 2</a>
+    <a href="/pro3">Project 3</a>
   `;
 }
 
