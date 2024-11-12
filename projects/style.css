@@ -5,11 +5,122 @@
   font-family: Arial, sans-serif;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 a {
-  font-size: 30px;
-  padding: 0 5%;
+  font-size: 1.6rem;
+  padding: 0 2%;
 }
 
 /* Rock paper scissors styling */
+.wrapper {
+  background-color: #3b1c32;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  text-align: center;
+  color: white;
+}
+
+.gameHeader {
+  font-size: 2.5rem;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 50%;
+}
+
+.player {
+  /* width: 105.375px; */
+}
+
+.player,
+.computer {
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.scoreboard div {
+  font-size: 1.5rem;
+}
+
+.playerTitle {
+  font-size: 1.2rem;
+}
+
+#playerScore,
+#pcScore {
+  font-size: 2rem;
+}
+
+.movesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+  height: 7%;
+}
+
+.movesHeader {
+  font-size: 1.3rem;
+}
+
+.moves-remaining {
+  font-size: 1.1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  font-size: 1.2rem;
+  color: white;
+  background-color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0a4f0a;
+}
+
+.btn:active {
+  background-color: #ff204e;
+}
+
+.result {
+  /* display: none; */
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
 
 /*  */
