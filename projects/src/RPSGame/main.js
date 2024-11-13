@@ -1,6 +1,6 @@
 export function RPSGame() {
     const html = `
-    <div class="wrapper">
+    <div class="RPSwrapper">
         <div class="container">
             <div class="gameHeader">Rock Paper Scissors</div>
             <div class="scoreboard">
