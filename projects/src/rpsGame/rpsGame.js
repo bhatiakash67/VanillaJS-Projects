@@ -1,4 +1,4 @@
-export function RPSGame() {
+export function rpsGame() {
     const html = `
     <div class="RPSwrapper">
         <div class="container">

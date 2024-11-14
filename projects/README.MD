@@ -11,8 +11,10 @@ graph TD;
     E --> F{Which route?}
     F -->|"/"| G[renderHome from home/main.js]
     F -->|"/memoizing-promises"| H[memoizePromises from memoizingPromises/main.js]
-    F -->|"/project2"| I[pro2 from pro2/main.js]
-    G --> J[Update #app div content]
-    H --> J
-    I --> J
+    F -->|"/rps-game"| I[rpsGame from rpsGame/main.js]
+    F -->|"/colour-flipper"| J[colourFlipper from colourFlipper/main.js]
+    G --> K[Update #app div content]
+    H --> K
+    I --> K
+    J --> K
 ```

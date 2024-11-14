@@ -3,7 +3,7 @@ export function colourFlipper() {
     <div class="colourFlipperwrapper">
         <div class="colourFlipperContainer">
             <div class="title">
-                Background Colour is: <span id="currentColour">Red</span>
+                Background Colour is: <span id="currentColour"></span>
             </div>
         </div>
         <div class="btnContainer">
