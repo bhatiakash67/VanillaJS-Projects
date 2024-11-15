@@ -1,5 +1,5 @@
 export function colourFlipper() {
-    const html = `
+    document.getElementById("mainContent").innerHTML = `
     <div class="colourFlipperwrapper">
         <div class="colourFlipperContainer">
             <div class="title">
@@ -12,8 +12,6 @@ export function colourFlipper() {
         </div>
     </div>
     `
-    document.getElementById('app').innerHTML = html
-
     let stopBtn = document.getElementById('stopBtn')
     let startBtn = document.getElementById('startBtn')
     let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']

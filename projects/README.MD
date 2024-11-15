@@ -13,7 +13,7 @@ graph TD;
     F -->|"/memoizing-promises"| H[memoizePromises from memoizingPromises/main.js]
     F -->|"/rps-game"| I[rpsGame from rpsGame/main.js]
     F -->|"/colour-flipper"| J[colourFlipper from colourFlipper/main.js]
-    G --> K[Update #app div content]
+    G --> K[Update #mainContent div content]
     H --> K
     I --> K
     J --> K

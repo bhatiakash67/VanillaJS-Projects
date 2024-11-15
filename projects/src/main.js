@@ -1,60 +1,48 @@
-import { homePage } from './home/home.js';
-import { memoizingPromise } from './memoizingPromises/memoizingPromise.js';
-import { rpsGame } from './rpsGame/rpsGame.js';
-import { colourFlipper } from './colourFlipper/bgFlipper.js';
+import {homePage} from './home/home.js';
+import {routeDefinitions} from './routeDefinitions.js';
 
-const routes = {
-  '/': homePage,
-  '/memoizing-promises': memoizingPromise,
-  '/rpsGame': rpsGame,
-  '/colourFlipper': colourFlipper
-};
+// constant time complexity through object, instead of linear time complexity with array
+const routes = routeDefinitions.reduce((acc, { path, component }) => {
+  acc[path] = component
+  return acc;
+}, {})
 
 function renderNav() {
   const nav = document.getElementById('main-nav');
   nav.innerHTML = `
     <div class="navContainer">
       <div id="logo">
-        <a href="/">VANILLA<span id="js">JS</span> PROJECTS</a>
+        <a href="/" data-link>VANILLA<span id="js">JS</span> PROJECTS</a>
       </div>
       <ul class="navLinks">
-        <li class="navLinkItem"><a class="navLink" href="/">Home</a></li>
-        <li class="navLinkItem"><a class="navLink" href="">Projects</a></li>
-        <li class="navLinkItem"><a class="navLink" href="">About</a></li>
-        <li class="navLinkItem"><a class="navLink" href="">Contact</a></li>
+        <li class="navLinkItem"><a class="navLink" href="/" data-link>Home</a></li>
+        <li class="navLinkItem"><a class="navLink" href="/projects" data-link>Projects <span style="color:blue">-want to keep?</span></a></li>
+        <li class="navLinkItem"><a class="navLink" href="/about" data-link>About</a></li>
+        <li class="navLinkItem"><a class="navLink" href="/contact" data-link>Contact</a></li>
       </ul>
     </div>
 `
-}
-function renderProjectLinks() {
-  const mainContent = document.getElementById('mainContent')
-  mainContent.innerHTML = `
-  <div class="projectLinks">
-  <a href="/memoizing-promises">Cache API Calls in JavaScript by Memoizing Promises</a>
-    <a href="/rpsGame">Rock Paper Scissors Game</a>
-    <a href="/colourFlipper">Background Colour Flipper</a>
-    </div>
-    `
 }
 
 function router() {
   const path = window.location.pathname;
   const renderFunction = routes[path] || homePage;
-  renderNav();
-  renderProjectLinks()
   renderFunction()
 }
 
-window.addEventListener('popstate', router);
-document.addEventListener('DOMContentLoaded', () => {
-  renderNav();
-  router();
-});
-
-document.body.addEventListener('click', (e) => {
-  if (e.target.matches('#main-nav a')) {
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('[data-link]')
+  if (link) {
     e.preventDefault();
-    window.history.pushState({}, '', e.target.href);
+    const href = link.getAttribute('href')
+    window.history.pushState({}, '', href);
     router();
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderNav()
+  router()
+});
+
+window.addEventListener("popstate", router)

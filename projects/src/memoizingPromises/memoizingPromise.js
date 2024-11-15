@@ -1,7 +1,6 @@
 export function memoizingPromise() {
-    const app = document.getElementById('app')
-    const html = `Storing the data fetched from api through promises into cache
-    
+
+    document.getElementById('mainContent').innerHTML = `Storing the data fetched from api through promises into cache
+    This is a promise and this is a promise 
     `
-    app.innerHTML = html
 }

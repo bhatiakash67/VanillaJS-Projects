@@ -1,7 +1,13 @@
+import { routeDefinitions } from "../routeDefinitions"
+
 export function homePage() {
-  const app = document.getElementById('app');
-  app.innerHTML = `
-    <h1>Welcome to My VanillaJS Projects</h1>
-    <p>Select a project to check it out.</p>
+  document.getElementById('mainContent').innerHTML = `
+  <div class="project-links">
+      ${routeDefinitions
+      .map(({ path, label }) => `<a href="${path}" data-link>${label}</a>`
+      )
+      .join(' ')
+    }
+    </div>
   `;
 }

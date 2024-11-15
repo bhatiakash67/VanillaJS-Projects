@@ -31,7 +31,7 @@ export function rpsGame() {
         </div>
     </div>
 `
-    document.getElementById('app').innerHTML = html
+    document.getElementById('mainContent').innerHTML = html
 
     let gameOptions = document.querySelectorAll('.playerOption')
     let playerScrDisplay = document.getElementById('playerScore')
