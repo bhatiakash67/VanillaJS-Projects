@@ -2,13 +2,13 @@ export function colourFlipper() {
     document.getElementById("mainContent").innerHTML = `
     <div class="colourFlipperwrapper">
         <div class="colourFlipperContainer">
-            <div class="title">
+            <p id="flipperTitle">
                 Background Colour is: <span id="currentColour"></span>
-            </div>
+            </p>
         </div>
         <div class="btnContainer">
-           <button class="changeColour" id="startBtn">Start the Party</button>
-            <button class="changeColour" id="stopBtn">I can't take this anymore</button>
+           <button class="changeColour" id="startBtn">Start</button>
+            <button class="changeColour" id="stopBtn">Stop</button>
         </div>
     </div>
     `

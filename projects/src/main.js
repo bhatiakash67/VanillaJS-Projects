@@ -10,17 +10,17 @@ const routes = routeDefinitions.reduce((acc, { path, component }) => {
 function renderNav() {
   const nav = document.getElementById('main-nav');
   nav.innerHTML = `
-    <div class="navContainer">
-      <div id="logo">
+  <div class="navContainer">
+      <label class="logo">
         <a href="/" data-link>VANILLA<span id="js">JS</span> PROJECTS</a>
-      </div>
+      </label>
       <ul class="navLinks">
         <li class="navLinkItem"><a class="navLink" href="/" data-link>Home</a></li>
-        <li class="navLinkItem"><a class="navLink" href="/projects" data-link>Projects <span style="color:blue">-want to keep?</span></a></li>
+        <li class="navLinkItem"><a class="navLink" href="/projects" data-link>Projects</a></li>
         <li class="navLinkItem"><a class="navLink" href="/about" data-link>About</a></li>
         <li class="navLinkItem"><a class="navLink" href="/contact" data-link>Contact</a></li>
       </ul>
-    </div>
+      </div>
 `
 }
 
