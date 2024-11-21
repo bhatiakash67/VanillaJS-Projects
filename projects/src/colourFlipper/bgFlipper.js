@@ -29,7 +29,7 @@ export function colourFlipper() {
             intervalId = setInterval(() => {
                 let hexColour = randomHexColour()
                 document.body.style.backgroundColor = hexColour
-                currentColour.textContent = hexColour
+                document.getElementById('currentColour').textContent = hexColour
             }, 1000)
         }
     })

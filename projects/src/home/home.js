@@ -1,4 +1,4 @@
-import { routeDefinitions } from "../routeDefinitions"
+import routeDefinitions  from "../routeDefinitions"
 
 export function homePage() {
   document.getElementById('mainContent').innerHTML = `

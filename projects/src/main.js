@@ -1,5 +1,5 @@
-import {homePage} from './home/home.js';
-import {routeDefinitions} from './routeDefinitions.js';
+import { homePage } from './home/home.js';
+import routeDefinitions from './routeDefinitions.js';
 
 // constant time complexity through object, instead of linear time complexity with array
 const routes = routeDefinitions.reduce((acc, { path, component }) => {

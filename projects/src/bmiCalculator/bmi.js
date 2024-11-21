@@ -1,19 +1,27 @@
 export function bmiCalculator() {
     document.getElementById('mainContent').innerHTML = `
     <div class="bmiWrapper">
-        <h1>BMI Calculator</h1>
-    <label for="yourHeight">Enter your height here:</label>
-    <input type="range" name="height" id="yourHeight" min=><span></span> <br>
-    <label for="yourWeight">Enter your weight here:</label>
-    <input type="number" name="weight" id="yourWeight" placeholder="kg">
-    <br> <button id="calculator">Calculate</button>
-    <div id="result">Your BMI is: </div>
-    <div id="health">Scale of health you are at: Normal or not</div>
+       <h1>BMI Calculator</h1>
+        <div class="bmiSections">
+            <label for="yourHeight">Height</label>
+            <span id="heightValue">174</span>
+        </div>
+        <input type="range" class="bmiRanges" name="height" id="yourHeight" min="142" max="210">
+        <div class="bmiSections">
+            <label for="yourWeight">Weight</label>
+            <span id="weightValue">64</span>
+        </div>
+        <input type="range" class="bmiRanges" name="weight" id="yourWeight" min="42" max="132">
+        <button id="calculator">Calculate</button>
+        <div id="result">Your BMI is:</div>
+        <div id="health"></div>
     <div>
     `
     let btn = document.getElementById('calculator')
     let result = document.getElementById('result')
     let range = document.getElementById('health')
+    let height = parseInt(document.getElementById('heightValue').textContent)
+    let weight = parseInt(document.getElementById('weightValue').textContent)
 
     function bmiCalculator(h, w) {
         h = h / 100
@@ -21,17 +29,30 @@ export function bmiCalculator() {
         return bmi
     }
 
+    function rangePicker(type, value) {
+        if (type === 'height') {
+            document.getElementById("heightValue").textContent = value + ' cm'
+            height = value
+        }
+        if (type === "weight") {
+            document.getElementById("weightValue").textContent = value + ' kg';
+            weight = value
+        }
+        return [height, weight]
+    }
+
+    document.getElementById('yourHeight').addEventListener("input", function () {
+        rangePicker('height', this.value)
+    })
+    document.getElementById('yourWeight').addEventListener("input", function () {
+        rangePicker('weight', this.value)
+    })
+
     btn.addEventListener("click", () => {
-        let weight = document.getElementById('yourWeight').value
-        let height = document.getElementById('yourHeight').value
-        try {
-            if (isNaN(weight) || isNaN(height)) {
-                throw new Error("Please enter both the values.")
-            }
-            if (weight <= 0 || height <= 0) {
-                throw new Error("Please enter valid values.")
-            }
-            let bmi = bmiCalculator(height, weight)
+
+        let bmi = bmiCalculator(...rangePicker())
+
+        function bmiRangeFinder() {
             result.textContent = `Your BMI is: ${bmi}`
             if (bmi < 16) {
                 range.textContent = 'Severe Thinness'
@@ -57,9 +78,8 @@ export function bmiCalculator() {
             else if (bmi > 40) {
                 range.textContent = 'Obese Class 3'
             }
+            return
         }
-        catch (error) {
-            alert(error.message)
-        }
+        bmiRangeFinder()
     })
 }

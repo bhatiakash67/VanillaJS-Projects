@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+body {
+  width: 100%;
+}
+
 nav {
   background-color: darkcyan;
   /* height: 80px; */
@@ -49,7 +53,7 @@ nav ul li a {
 }
 
 a.navLinkItem,
-a:hover {
+nav ul li a:hover {
   background: #006d6f;
   transition: .5s;
 }
@@ -208,8 +212,6 @@ a:hover {
   display: none;
 }
 
-/*---------------*/
-
 /* colour flipper styling */
 .colourFlipperwrapper {
   height: 80vh;
@@ -237,12 +239,13 @@ a:hover {
 #flipperTitle {
   font-weight: 900;
   font-size: 20px;
+  text-wrap: wrap;
 }
 
 .btnContainer {
-  width: 100%;
+  width: 40%;
   display: flex;
-  gap: 16%;
+  gap: 56%;
   justify-content: center;
   align-items: center;
 }
@@ -283,13 +286,28 @@ a:hover {
 
 /* bmi styling */
 .bmiWrapper {
-  background-color: darkgoldenrod;
+  background-color: #002d62;
+  height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1%;
-  height: 70vh;
+  justify-content: center;
+  gap: 2%;
+}
+
+.bmiSections {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 27%;
+  width: 45%;
+  margin-top: 2%;
+  font-size: 1.5em;
+  color: white;
+}
+
+.bmiRanges {
+  width: 45%;
 }
 
 #clockWrapper {
@@ -299,7 +317,8 @@ a:hover {
   height: 80vh;
 }
 
-#day, #clock {
+#day,
+#clock {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -310,4 +329,44 @@ a:hover {
   max-height: 150px;
   border-radius: 15px;
   font-size: 50px;
+}
+
+/* Table styling */
+#tableWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  gap: 5%;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 1%;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 1%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#searchBar {
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#searchBar::placeholder {
+  text-align: center;
+  font-weight: bolder;
 }
