@@ -370,3 +370,54 @@ tr:nth-child(even) {
   text-align: center;
   font-weight: bolder;
 }
+
+/* memoize promises */
+.promiseWrapper {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  margin: 10px 5px;
+}
+
+.topContainer,
+.callCart {
+  width: 100%;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px 1px #888888;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.memoTextHeaders {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#idCount {
+  font-weight: bold;
+}
+
+#memoBtnsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.memoBtns {
+  width: 10%;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.memoBtns:hover {
+  background-color: gray;
+}
+
+#fetchedItemList {
+  margin-left: 20px;
+}
