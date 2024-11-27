@@ -421,3 +421,7 @@ tr:nth-child(even) {
 #fetchedItemList {
   margin-left: 20px;
 }
+
+#keyLogger {
+  background-color: burlywood;
+}
