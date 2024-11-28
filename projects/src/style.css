@@ -285,14 +285,43 @@ nav ul li a:hover {
 }
 
 /* bmi styling */
+:root {
+  --underweight: orange;
+  --normal: green;
+  --overweight: lightcoral;
+  --obese: crimson;
+}
+
 .bmiWrapper {
   background-color: #002d62;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2%;
+  display: grid;
+  place-items: center;
+  height: 80vh;
+}
+
+.bmiBody {
+  width: 90%;
+  max-width: 420px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  display: grid;
+  gap: 1rem;
+}
+
+#bmiHeader {
+  text-align: center;
+}
+
+.calculator {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+}
+
+.calculator label {
+  font-weight: 600;
 }
 
 .bmiSections {
@@ -300,14 +329,56 @@ nav ul li a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 27%;
-  width: 45%;
-  margin-top: 2%;
+  width: 100%;
   font-size: 1.5em;
-  color: white;
 }
 
 .bmiRanges {
-  width: 45%;
+  width: 100%;
+}
+
+#bmiCalculator {
+  background-color: #325681;
+  max-width: 150px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+#bmiCalculator:hover {
+  filter: brightness(120%);
+}
+
+.output {
+  text-align: center;
+}
+
+.output #bmiDisplay {
+  font-size: 4rem;
+}
+
+#health {
+  text-transform: uppercase;
+}
+
+.bmiScale {
+  display: flex;
+}
+
+.bmiScale div {
+  text-align: center;
+  flex: 1;
+  text-transform: uppercase;
+  border-top: 5px solid var(--color);
+  padding: 10px;
+}
+
+.bmiScale h4 {
+  font-size: .75rem;
+  color: slategray;
 }
 
 #clockWrapper {
@@ -364,6 +435,7 @@ tr:nth-child(even) {
   height: 30px;
   border: 1px solid black;
   border-radius: 10px;
+  padding: 10px;
 }
 
 #searchBar::placeholder {
