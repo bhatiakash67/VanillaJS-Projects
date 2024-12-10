@@ -1,33 +1,29 @@
 export function persistentKeyboardChecker() {
-    document.getElementById('mainContent').innerHTML = `
-    <div id="keyLogger">
-        The selected key is: <ul id="keyName"></ul>
-        <p id="last"></p>
-        <button id="btn">Remove the values</button>
-    </div>
+  document.getElementById('mainContent').innerHTML = `
+  <div id="keyLogger">
+    <h1>The pressed key is: </h1>
+    <div id="keyName"></div>
+    <button id="keyCheckerBtn">Clear the local Storage</button>
+  </div>
 `
-    let keyDisplay = document.getElementById('keyName')
-    const storedKeys = JSON.parse(localStorage.getItem('keyLog')) || []
+  let keyDisplay = document.getElementById('keyName')
+  const storedKey = JSON.parse(localStorage.getItem('keyLog')) || []
 
-    function fetchKeys() {
-        keyDisplay.innerHTML = ''
-        storedKeys.forEach((key, index) => {
-            const listItem = document.createElement('li')
-            listItem.textContent = `${index + 1}: ${key}`
-            keyDisplay.appendChild(listItem)
-        })
-    }
-    fetchKeys()
+  function fetchKeys(key) {
+    if (key) keyDisplay.textContent = `${key}`
+    else if (storedKey.length > 0) keyDisplay.textContent = `${storedKey[storedKey.length - 1]}`;
+    else keyDisplay.textContent = `No key pressed yet.`
+  }
+  fetchKeys()
 
-    document.addEventListener('keydown', (e) => {
-        storedKeys.push(e.code)
-        localStorage.setItem('keyLog', JSON.stringify(storedKeys))
-        fetchKeys()
-    })
+  document.addEventListener('keydown', (e) => {
+    storedKey.push(e.code)
+    localStorage.setItem('keyLog', JSON.stringify(storedKey))
+    fetchKeys(e.code)
+  })
 
-    document.getElementById('btn').addEventListener('click', () => {
-        localStorage.removeItem('keyLog')
-        keyDisplay.innerHTML = ''
-        storedKeys.length = 0
-    })
+  document.getElementById('keyCheckerBtn').addEventListener('click', () => {
+    keyDisplay.innerHTML = 'No key pressed yet.'
+    localStorage.clear()
+  })
 }

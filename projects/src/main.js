@@ -10,7 +10,7 @@ const routes = routeDefinitions.reduce((acc, { path, component }) => {
 function renderNav() {
   const nav = document.getElementById('main-nav');
   nav.innerHTML = `
-  <div class="navContainer">
+  <nav class="navContainer">
       <label class="logo">
         <a href="/" data-link>VANILLA<span id="js">JS</span> PROJECTS</a>
       </label>
@@ -20,7 +20,7 @@ function renderNav() {
         <li class="navLinkItem"><a class="navLink" href="/about" data-link>About</a></li>
         <li class="navLinkItem"><a class="navLink" href="/contact" data-link>Contact</a></li>
       </ul>
-      </div>
+      </nav>
 `
 }
 
